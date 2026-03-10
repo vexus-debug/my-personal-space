@@ -18,6 +18,7 @@ export interface DetectedPattern {
   pattern: CandlestickPattern | ChartPattern | MarketStructureEvent;
   price: number;
   detectedAt: number;
+  formedAt: number; // actual candle timestamp when the pattern formed
   category: 'candlestick' | 'chart' | 'structure';
 }
 
