@@ -81,7 +81,7 @@ export function detectCandlestickPatterns(candles: Candle[], excludeLastCandle =
 
     // Hanging Man
     if (lowerWick(c) > body * 2 && upperWick(c) < body * 0.5 && isBullish(prev)) {
-      patterns.push({ name: 'Hanging Man', type: 'bearish', significance: 'medium', candleIndex: i, description: 'Bearish reversal at top of uptrend' });
+      patterns.push({ name: 'Hanging Man', type: 'bearish', significance: 'medium', candleIndex: i, description: 'Bearish reversal at top of uptrend. Confirm with next bearish close. Enter short below low, stop above high.' });
     }
 
     // Marubozu (strong momentum)
