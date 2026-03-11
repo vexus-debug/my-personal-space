@@ -114,7 +114,7 @@ export function detectCandlestickPatterns(candles: Candle[], excludeLastCandle =
 
     // Piercing Line
     if (isBullish(c) && isBearish(prev) && c.open < prev.low && c.close > (prev.open + prev.close) / 2 && c.close < prev.open) {
-      patterns.push({ name: 'Piercing Line', type: 'bullish', significance: 'medium', candleIndex: i, description: 'Bull candle closes above midpoint of prior bear' });
+      patterns.push({ name: 'Piercing Line', type: 'bullish', significance: 'medium', candleIndex: i, description: 'Bull candle closes above midpoint of prior bear. Enter long on confirmation, stop below pattern low.' });
     }
 
     // Dark Cloud Cover
