@@ -117,21 +117,22 @@ export function AppLayout({ children }: { children: ReactNode }) {
 
         {/* Bottom tab bar */}
         <nav className="flex border-t border-border bg-card safe-area-bottom">
-          {MOBILE_TABS.map((tab) => (
-            <NavLink
-              key={tab.to}
-              to={tab.to}
-              className="flex flex-1 flex-col items-center gap-0.5 py-2 text-[10px] text-muted-foreground transition-colors"
-              activeClassName="text-primary"
-            >
-              {({ isActive }: { isActive: boolean }) => (
-                <>
-                  <tab.icon className="h-5 w-5" fill={isActive ? 'currentColor' : 'none'} />
-                  <span className="font-medium">{tab.label}</span>
-                </>
-              )}
-            </NavLink>
-          ))}
+          {MOBILE_TABS.map((tab) => {
+            const isActive = currentPath === tab.to;
+            return (
+              <NavLink
+                key={tab.to}
+                to={tab.to}
+                className={cn(
+                  'flex flex-1 flex-col items-center gap-0.5 py-2 text-[10px] transition-colors',
+                  isActive ? 'text-primary' : 'text-muted-foreground'
+                )}
+              >
+                <tab.icon className="h-5 w-5" fill={isActive ? 'currentColor' : 'none'} />
+                <span className="font-medium">{tab.label}</span>
+              </NavLink>
+            );
+          })}
           <button
             onClick={() => setMoreOpen(true)}
             className={cn(
