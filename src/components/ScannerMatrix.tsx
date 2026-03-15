@@ -24,14 +24,16 @@ interface TrendEntry {
 }
 
 type SortMode = 'confirmations' | 'probability' | 'volume' | 'change' | 'adx';
+type AccuracyMode = 'all' | 'high' | 'ultra';
 
 export function ScannerMatrix({ assets, scanning, scanProgress, onAddToWatchlist, isWatched }: ScannerMatrixProps) {
   const [search, setSearch] = useState('');
   const [expandedKey, setExpandedKey] = useState<string | null>(null);
   const [filterTf, setFilterTf] = useState<Timeframe | 'all'>('all');
-  const [sortMode, setSortMode] = useState<SortMode>('confirmations');
+  const [sortMode, setSortMode] = useState<SortMode>('probability');
   const [filterSector, setFilterSector] = useState<CryptoSector | 'all'>('all');
   const [filterDirection, setFilterDirection] = useState<'all' | 'bull' | 'bear'>('all');
+  const [accuracyMode, setAccuracyMode] = useState<AccuracyMode>('high');
   const [chartSymbol, setChartSymbol] = useState<string | null>(null);
   const [chartTf, setChartTf] = useState<Timeframe>('60');
 
